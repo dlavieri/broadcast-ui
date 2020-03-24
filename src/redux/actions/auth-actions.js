@@ -1,4 +1,4 @@
-const LOGIN = "LOGIN", LOGOUT = "LOGOUT";
+export const LOGIN = "LOGIN", LOGOUT = "LOGOUT";
 
 export function login(user, token) {
     return {

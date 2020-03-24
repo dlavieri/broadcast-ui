@@ -1,0 +1,10 @@
+.feed {
+    min-width: 300px;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.feed .no-posts {
+    font-size: 1.6em;
+    padding-top: 25px;
+}

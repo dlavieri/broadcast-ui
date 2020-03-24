@@ -1,0 +1,77 @@
+.post {
+    width: 100%;
+    border-radius: 8px;
+    height: auto;
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    margin: 5px 0;
+}
+
+.post_data {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 5px 10px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.user_data_container {
+    display: flex;
+    align-items: center;
+}
+
+.user_data_container .data_username a {
+    text-decoration: none;
+}
+
+img.data_img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.post_data .data_username {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.post_data .data_timestamp {
+    color: var(--main-grey);
+    font-size: 0.9em;
+}
+
+.post_content {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    text-align: left;
+}
+
+.post_interact {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 10px 10px 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post_interact > i {
+    margin-left: 15px;
+    color: var(--lite-grey);
+    transition: color ease-out 300ms;
+    font-size: 1.3em;
+}
+.post_interact > i:hover {
+    color: var(--main-blue)
+}
+
+.post_interact > i.active {
+    margin-left: 15px;
+    color: var(--main-blue);
+    transition: color ease-out 300ms;
+}
+.post_interact > i.active:hover {
+    color: var(--dark-blue)
+}

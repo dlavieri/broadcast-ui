@@ -1,0 +1,34 @@
+.input {
+    width: 100%;
+    display: flex;
+    background-color: var(--main-blue);
+    box-sizing: border-box;
+    padding: 15px;
+    border-radius: 10px;
+    height: auto;
+    min-width: 300px;
+}
+
+textarea {
+    border: none;
+    resize: none;
+    border-collapse: collapse;
+    flex-grow: 1;
+    height: 50px;
+    background: transparent;
+    font-size: 1.3em;
+    color: #fff;
+}
+textarea:focus {
+    outline: none;
+}
+::placeholder {
+    color: #fff;
+}
+
+.input .post_btn {
+    align-self: center;
+    font-size: 1.6em;
+    margin: 0 8px;
+    color: #fff;
+}
