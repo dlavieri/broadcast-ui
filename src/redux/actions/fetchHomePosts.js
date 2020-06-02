@@ -5,9 +5,8 @@ import { fetchPostsPending, fetchPostsSuccess, fetchPostsError } from '../action
 function fetchHomePosts() {
     return dispatch => {
         dispatch(fetchPostsPending());
-        return axios.get("http://localhost:8080/home-posts")
+        return axios.get(`${apiPath}home-posts`)
         .then(res => {
-            console.log(res)
             dispatch(fetchPostsSuccess(res.data));
         })
         .catch(err => {

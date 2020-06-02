@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { newPost } from '../../redux/actions/post-actions';
+import createPost from '../../redux/actions/createPost';
 import './input.css';
 
 const Input = props => {
@@ -14,15 +14,14 @@ const Input = props => {
     }
 
     function submitPost() {
-        let user = props.user || {username: "davidlavieri", img: "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/67568428_10162145422450118_7285213189212471296_n.jpg?_nc_cat=109&_nc_sid=85a577&_nc_ohc=hjnOAxGLhb4AX_q0tBf&_nc_ht=scontent-sjc3-1.xx&oh=2ec69d356756e70fecbf7f37c481dcf5&oe=5E95CDA3"};
-        props.newPost(user, post);
-        let input = document.getElementById("input");
-        input.value = "";
+        let user = props.user.username;
+        props.createPost(user, post);
+        setPost('');
     }
 
     return (
         <div className="input">
-            <textarea id="input" placeholder="Broadcast something..." onChange={typePost}></textarea>
+            <textarea id="input" placeholder="Broadcast something..." onChange={typePost} value={post}></textarea>
             <i className="post_btn fas fa-paper-plane" onClick={submitPost}></i>
         </div>
     )
@@ -37,7 +36,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    newPost: newPost
+    createPost: createPost
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input);

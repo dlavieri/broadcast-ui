@@ -16,8 +16,8 @@ const Post = props => {
         <div className="post">
             <div className="post_data">
                 <div className="user_data_container">
-                    <img className="data_img" src={props.user.img} alt={props.user.username}/>
-                    <span className="data_username"><Link to={"/user/" + props.user.username}>@{props.user.username}</Link></span>
+                    <img className="data_img" src='https://cdn.osxdaily.com/wp-content/uploads/2014/07/users-and-groups-icon-mac.png' alt={props.userUsername}/>
+                    <span className="data_username"><Link to={"/user/" + props.user}>@{props.user}</Link></span>
                 </div>
                 <span className="data_timestamp">{props.timeStamp}</span>
             </div>

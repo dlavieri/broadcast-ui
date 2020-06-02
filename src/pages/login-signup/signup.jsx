@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import './login-signup.css';
 import axios from 'axios';
-
+import { apiPath } from '../../env';
 import Container from '../../components/container/container';
 
 class SignupPage extends Component {
@@ -22,7 +22,7 @@ class SignupPage extends Component {
         e.preventDefault();
         const { username, password } = this.state;
 
-        axios.post(`http://localhost:8080/signup`, {username, password})
+        axios.post(`${apiPath}signup`, {username, password})
         .then(res => {
             if (res.status === 200) {
                 console.log('signedup')

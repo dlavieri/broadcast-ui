@@ -9,8 +9,8 @@ const Feed = props => {
             {props.posts ? props.posts.map(post => {
                 return (
                     <Post
-                        user={post.user}
-                        timeStamp={post.timeStamp}
+                        user={post.userUsername}
+                        timeStamp={post.createdAt}
                         content={post.content}
                         />
                 )

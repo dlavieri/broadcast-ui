@@ -9,11 +9,11 @@ import Feed from '../../components/feed/feed';
 import Input from '../../components/input/input';
 
 
-
+ 
 class StreamPage extends Component {
 
     componentDidMount() {
-        fetchHomePosts();
+        this.props.fetchHomePosts();
     }
 
     render() {
@@ -41,4 +41,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch);
 
 
-export default connect(mapStateToProps)(StreamPage);
+export default connect(mapStateToProps, mapDispatchToProps)(StreamPage);

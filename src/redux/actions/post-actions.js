@@ -1,13 +1,23 @@
-export const NEW_POST = "NEW_POST";
+export const NEW_POST_PENDING = "NEW_POST_PENDING";
+export const NEW_POST_SUCCESS = "NEW_POST_SUCCESS";
+export const NEW_POST_ERR = "NEW_POST_ERR";
 
-export function newPost (user, content) {
+export function newPostPending () {
     return {
-        type: NEW_POST,
-        post: {
-            user: user,
-            timeStamp: new Date().toString(),
-            content: content,
-        }
+        type: NEW_POST_PENDING,
+    }
+}
+
+export function newPostSuccess () {
+    return {
+        type: NEW_POST_SUCCESS,
+    }
+}
+
+export function newPostErr (err) {
+    return {
+        type: NEW_POST_ERR,
+        error: err
     }
 }
 
