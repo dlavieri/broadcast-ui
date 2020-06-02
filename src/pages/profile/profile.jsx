@@ -17,12 +17,12 @@ class ProfilePage extends Component {
     }
 
     render() {
-
+        console.log(this.props)
         return (
             <Container>
-                <Header user={this.props.user} />
+                <Header user={this.props.userData} />
                 <Input />
-                <Feed />
+                <Feed posts={this.props.posts}/>
             </Container>
         )
     }
@@ -32,7 +32,9 @@ const mapStateToProps = state => {
     return {
       isLoggedIn: state.isLoggedIn,
       user: state.user,
-      token: state.token
+      token: state.token,
+      userData: state.userData,
+      posts: state.posts
   
     }
 }

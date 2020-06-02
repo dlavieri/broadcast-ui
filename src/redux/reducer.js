@@ -1,6 +1,7 @@
 import { LOGIN, LOGOUT } from './actions/auth-actions';
 import { NEW_POST_PENDING, NEW_POST_SUCCESS, NEW_POST_ERR } from './actions/post-actions';
 import { POSTS_FETCH_PENDING, POSTS_FETCH_SUCCESS, POSTS_FETCH_ERR } from './actions/post-actions';
+import { FETCH_USER_PENDING, FETCH_USER_SUCCESS, FETCH_USER_ERR } from './actions/user-actions';
 
 
 const dummyUser = {
@@ -70,6 +71,24 @@ const rootReducer = (state=defaultState, action) => {
             return {
                 ...state,
                 postsFetching: false,
+                errors: errors.push(action.error),
+            }
+        case FETCH_USER_PENDING:
+            return {
+                ...state,
+                userFetching: true,
+            };
+        case FETCH_USER_SUCCESS:
+            return {
+                ...state,
+                userFetching: false,
+                userData: action.userData,
+                posts: action.posts,
+            };
+        case FETCH_USER_ERR:
+            return {
+                ...state,
+                userFetching: false,
                 errors: errors.push(action.error),
             }
         default:
