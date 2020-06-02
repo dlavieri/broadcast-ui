@@ -9,10 +9,10 @@ function fetchUser(username) {
         .then(res => {
             console.log(res)
             let user = {
-                username: res.data.username,
-                name: res.data.name || '',
-                about: res.data.about || '',
-                img: res.data.img || ''
+                username: res.data.user.username,
+                name: res.data.user.name || '',
+                about: res.data.user.about || '',
+                img: res.data.user.img || ''
             }
             let posts = res.data.posts;
             dispatch(fetchUserSuccess(user, posts))

@@ -5,7 +5,6 @@ import './profile.css';
 import fetchUser from '../../redux/actions/fetchUser';
 
 import Container from '../../components/container/container';
-import Input from '../../components/input/input';
 import Feed from '../../components/feed/feed';
 import Header from '../../components/profile-header/header';
 
@@ -21,7 +20,6 @@ class ProfilePage extends Component {
         return (
             <Container>
                 <Header user={this.props.userData} />
-                <Input />
                 <Feed posts={this.props.posts}/>
             </Container>
         )
