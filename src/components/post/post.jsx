@@ -1,14 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './post.css';
+import { apiPath } from '../../env';
 
 const Post = props => {
 
-    function sendBroadcast() {
+    function handleBroadcast() {
         console.log("broadcasting")
+        axios.post(`${apiPath}broadcast-post/${props._id}`)
+        .then(res => {
+            if (res.status !== 200) {
+                alert("failure")
+            }
+        })
+        .catch(err => console.log(err))
     }
 
-    function sendReply() {
+    function handleReply() {
         console.log("replying")
     }
 
@@ -25,7 +34,7 @@ const Post = props => {
                 {props.content}
             </div>
             <div className="post_interact">
-                <i className="fas fa-broadcast-tower"></i>
+                <i className="fas fa-broadcast-tower" onClick={handleBroadcast}></i>
                 <i className="fas fa-reply"></i>
             </div>
         </div>
