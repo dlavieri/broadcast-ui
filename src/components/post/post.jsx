@@ -7,7 +7,6 @@ import { apiPath } from '../../env';
 const Post = props => {
 
     function handleBroadcast() {
-        console.log("broadcasting")
         axios.post(`${apiPath}broadcast-post/${props._id}`)
         .then(res => {
             if (res.status !== 200) {
@@ -20,7 +19,6 @@ const Post = props => {
     function handleReply() {
         console.log("replying")
     }
-
     return (
         <div className="post">
             <div className="post_data">
@@ -34,7 +32,9 @@ const Post = props => {
                 {props.content}
             </div>
             <div className="post_interact">
-                <i className="fas fa-broadcast-tower" onClick={handleBroadcast}></i>
+                <i className="fas fa-broadcast-tower" onClick={handleBroadcast}>
+                    {props.broadcasts > 0 && <span className="count-pill">{props.broadcasts}</span>}
+                </i>
                 <i className="fas fa-reply"></i>
             </div>
         </div>

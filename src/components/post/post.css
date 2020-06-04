@@ -62,6 +62,8 @@ img.data_img {
     color: var(--lite-grey);
     transition: color ease-out 300ms;
     font-size: 1.3em;
+    position: relative;
+    cursor: pointer;
 }
 .post_interact > i:hover {
     color: var(--main-blue)
@@ -74,4 +76,16 @@ img.data_img {
 }
 .post_interact > i.active:hover {
     color: var(--dark-blue)
+}
+
+.count-pill {
+    color: #fff;
+    background: var(--main-blue);
+    font-size: 0.7rem;
+    font-family: var(--main-font);
+    padding: 2px 5px;
+    border-radius: 8px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
 }
