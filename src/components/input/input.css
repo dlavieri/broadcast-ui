@@ -9,7 +9,7 @@
     min-width: 300px;
 }
 
-textarea {
+.input textarea {
     border: none;
     resize: none;
     border-collapse: collapse;
@@ -19,7 +19,7 @@ textarea {
     font-size: 1.3em;
     color: #fff;
 }
-textarea:focus {
+.input textarea:focus {
     outline: none;
 }
 ::placeholder {
@@ -31,4 +31,40 @@ textarea:focus {
     font-size: 1.6em;
     margin: 0 8px;
     color: #fff;
+}
+
+/* REPLY INPUT */
+
+.input.reply {
+    background-color: #fff;
+    border-top: 1px solid var(--lite-grey);
+    box-sizing: border-box;
+    padding: 5px 15px;
+    border-radius: 0px 0px 8px 8px;
+    height: auto;
+}
+
+.reply textarea {
+    border: none;
+    resize: none;
+    border-collapse: collapse;
+    flex-grow: 1;
+    height: 20px;
+    background: transparent;
+    font-size: 0.8rem;
+    color: var(--lite-grey);
+}
+.input textarea:focus {
+    outline: none;
+}
+.reply ::placeholder {
+    color: #000;
+}
+
+.reply .post_btn {
+    align-self: center;
+    font-size: 0.8rem;
+    margin: 0 8px;
+    color: var(--lite-grey);
+    cursor: pointer;
 }

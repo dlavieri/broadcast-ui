@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import createPost from '../../redux/actions/createPost';
+import createReply from '../../redux/actions/createReply';
 import './input.css';
+import classnames from 'classnames';
 
 const Input = props => {
 
@@ -13,16 +15,28 @@ const Input = props => {
         setPost(text);
     }
 
-    function submitPost() {
+    function handleSubmit() {
         let user = props.user.username;
-        props.createPost(user, post);
+        let postId = props.postId;
+
+        if (props.reply) {
+            props.createReply(user, post, postId);
+        } else {
+            props.createPost(user, post);
+        }
+
         setPost('');
     }
 
+    const inputClass = classnames({
+        'input': true,
+        'reply': props.reply
+    });
+
     return (
-        <div className="input">
-            <textarea id="input" placeholder="Broadcast something..." onChange={typePost} value={post}></textarea>
-            <i className="post_btn fas fa-paper-plane" onClick={submitPost}></i>
+        <div className={inputClass}>
+            <textarea id="input" placeholder={props.reply ? "..." : "Broadcast something..."} onChange={typePost} value={post}></textarea>
+            <i className="post_btn fas fa-paper-plane" onClick={handleSubmit}></i>
         </div>
     )
 }
@@ -36,7 +50,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    createPost: createPost
+    createPost: createPost,
+    createReply: createReply,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input);

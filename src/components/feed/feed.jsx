@@ -4,6 +4,7 @@ import './feed.css';
 import Post from '../post/post';
 
 const Feed = props => {
+    console.log(props.posts)
     return (
         <div className="feed">
             {props.posts ? props.posts.map(post => {

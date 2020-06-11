@@ -21,6 +21,29 @@ export function newPostErr (err) {
     }
 }
 
+export const NEW_REPLY_PENDING = "NEW_REPLY_PENDING";
+export const NEW_REPLY_SUCCESS = "NEW_REPLY_SUCCESS";
+export const NEW_REPLY_ERR = "NEW_REPLY_ERR";
+
+export function newReplyPending () {
+    return {
+        type: NEW_REPLY_PENDING,
+    }
+}
+
+export function newReplySuccess () {
+    return {
+        type: NEW_REPLY_SUCCESS,
+    }
+}
+
+export function newReplyErr (err) {
+    return {
+        type: NEW_REPLY_ERR,
+        error: err
+    }
+}
+
 export const POSTS_FETCH_PENDING = "POSTS_FETCH_PENDING";
 export const POSTS_FETCH_SUCCESS = "POSTS_FETCH_SUCCESS";
 export const POSTS_FETCH_ERR = "POSTS_FETCH_ERR";
@@ -44,3 +67,4 @@ export function fetchPostsError(err) {
         error: err,
     }
 }
+

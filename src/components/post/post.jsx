@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './post.css';
 import { apiPath } from '../../env';
 
+import Input from '../input/input';
+
+
 const Post = props => {
+
+    const [ replyActive, toggleReply ] = useState(false);
+    let castActive = false;
+
+    const replyClass = classnames({
+        "fas fa-reply": true,
+        "active": replyActive
+    })
+
+    const castClass = classnames({
+        "fas fa-broadcast-tower": true,
+        "active": castActive
+    })
 
     function handleBroadcast() {
         axios.post(`${apiPath}broadcast-post/${props._id}`)
@@ -12,12 +29,9 @@ const Post = props => {
             if (res.status !== 200) {
                 alert("failure")
             }
+            castActive = true;
         })
         .catch(err => console.log(err))
-    }
-
-    function handleReply() {
-        console.log("replying")
     }
     return (
         <div className="post">
@@ -32,11 +46,12 @@ const Post = props => {
                 {props.content}
             </div>
             <div className="post_interact">
-                <i className="fas fa-broadcast-tower" onClick={handleBroadcast}>
+                <i className={castClass} onClick={handleBroadcast}>
                     {props.broadcasts > 0 && <span className="count-pill">{props.broadcasts}</span>}
                 </i>
-                <i className="fas fa-reply"></i>
+                <i className={replyClass} onClick={()=>toggleReply(!replyActive)}></i>
             </div>
+            {replyActive && <Input reply={true} postId={props._id}/>}
         </div>
     )
 }
