@@ -8,9 +8,10 @@ export function newPostPending () {
     }
 }
 
-export function newPostSuccess () {
+export function newPostSuccess (post) {
     return {
         type: NEW_POST_SUCCESS,
+        post: post
     }
 }
 
@@ -31,9 +32,11 @@ export function newReplyPending () {
     }
 }
 
-export function newReplySuccess () {
+export function newReplySuccess (post_id, reply) {
     return {
         type: NEW_REPLY_SUCCESS,
+        reply: reply,
+        post_id: post_id
     }
 }
 

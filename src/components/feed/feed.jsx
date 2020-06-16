@@ -4,7 +4,7 @@ import './feed.css';
 import Post from '../post/post';
 
 const Feed = props => {
-    console.log(props.posts)
+
     return (
         <div className="feed">
             {props.posts ? props.posts.map(post => {
@@ -14,7 +14,7 @@ const Feed = props => {
                         timeStamp={post.createdAt}
                         content={post.content}
                         broadcasts={post.broadcasts}
-                        replies={post.replies}
+                        replies={post.replies || []}
                         _id={post._id}
                         key={post._id}
                         />

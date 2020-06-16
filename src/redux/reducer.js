@@ -49,7 +49,8 @@ const rootReducer = (state=defaultState, action) => {
         case NEW_POST_SUCCESS:
             return {
                 ...state,
-                postPending: false
+                postPending: false,
+                posts: [action.post, ...state.posts]
             };
         case NEW_POST_ERR:
             return {
@@ -57,22 +58,30 @@ const rootReducer = (state=defaultState, action) => {
                 postPending: false,
                 errors: [...state.errors, action.error]
             }
-            case NEW_REPLY_PENDING:
-                    return {
-                        ...state,
-                        replyPending: true
-                    };
-            case NEW_REPLY_SUCCESS:
+        case NEW_REPLY_PENDING:
                 return {
                     ...state,
-                    replyPending: false
+                    replyPending: true
                 };
-            case NEW_REPLY_ERR:
-                return {
-                    ...state,
-                    replyPending: false,
-                    errors: [...state.errors, action.error]
+        case NEW_REPLY_SUCCESS:
+            let posts = [...state.posts];
+            for (let post of posts) {
+                if (post._id === action.post_id) {
+                    post.replies.push(action.reply)
                 }
+            }
+            console.log(posts)
+            return {
+                ...state,
+                replyPending: false,
+                posts: posts
+            };
+        case NEW_REPLY_ERR:
+            return {
+                ...state,
+                replyPending: false,
+                errors: [...state.errors, action.error]
+            }
         case POSTS_FETCH_PENDING:
             return {
                 ...state,

@@ -8,7 +8,7 @@ function createReply(username, content, post_id) {
         return axios.post(`${apiPath}reply/${post_id}`, { username, content})
             .then(res => {
                 if (res.status === 200) {
-                    dispatch(newReplySuccess())
+                    dispatch(newReplySuccess(post_id, res.data.reply))
                 }
             })
             .catch(err => dispatch(newReplyErr(err)))
