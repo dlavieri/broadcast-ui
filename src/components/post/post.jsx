@@ -6,6 +6,7 @@ import './post.css';
 import { apiPath } from '../../env';
 
 import Input from '../input/input';
+import Reply from '../reply/reply';
 
 
 const Post = props => {
@@ -49,8 +50,11 @@ const Post = props => {
                 <i className={castClass} onClick={handleBroadcast}>
                     {props.broadcasts > 0 && <span className="count-pill">{props.broadcasts}</span>}
                 </i>
-                <i className={replyClass} onClick={()=>toggleReply(!replyActive)}></i>
+                <i className={replyClass} onClick={()=>toggleReply(!replyActive)}>
+                {props.replies.length > 0 && <span className="count-pill">{props.replies.length}</span>}
+                </i>
             </div>
+            {replyActive && props.replies.map(reply => <Reply user={reply.user} content={reply.content} key={reply._id}/>)}
             {replyActive && <Input reply={true} postId={props._id}/>}
         </div>
     )

@@ -1,0 +1,22 @@
+.comment {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--lite-grey);
+    padding: 5px 20px 10px 20px;
+    box-sizing: border-box;
+}
+
+.comment-username {
+    margin: 0;
+    font-size: 0.7rem;
+    width: 100%;
+    text-align: start;
+}
+
+.comment-content {
+    margin: 0;
+    font-size: 0.7rem;
+    width: 100%;
+    text-align: start;
+}

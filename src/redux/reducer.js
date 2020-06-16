@@ -6,7 +6,7 @@ import { NEW_REPLY_PENDING, NEW_REPLY_SUCCESS, NEW_REPLY_ERR } from './actions/p
 
 
 const dummyUser = {
-    username: "dvlavieri",
+    username: "dummyuser22",
     img: "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/67568428_10162145422450118_7285213189212471296_n.jpg?_nc_cat=109&_nc_sid=85a577&_nc_ohc=hjnOAxGLhb4AX_q0tBf&_nc_ht=scontent-sjc3-1.xx&oh=2ec69d356756e70fecbf7f37c481dcf5&oe=5E95CDA3",
     about: "I love programming, reading, and cats. All posts are my own thinking, not my employer's"
 }
